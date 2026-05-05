@@ -15,20 +15,24 @@ State lives in `.squad/` in your repo — decisions, conventions, per-agent hist
 
 ## Install
 
+You don't need to clone this repo. Run the install commands inside Claude Code itself — any session, any directory:
+
 ```
-/plugin marketplace add bradygaster/claude-squad
+/plugin marketplace add nathanaelk/claude-squad
 /plugin install squad@claude-squad
 ```
 
-Then, in your project's working directory:
+Claude Code fetches the plugin from GitHub into its own cache. You only do this once per machine.
+
+Then open Claude Code in the project where you want a squad and run:
 
 ```
 /squad:init
 ```
 
-That's it. The first two commands install the plugin once per machine. `/squad:init` is per-project — it creates the `.squad/` state directory and adds a Team Roster section to your `CLAUDE.md` (or creates one if you don't have it). Re-running it is safe.
+`/squad:init` writes `.squad/` and a Team Roster section in `CLAUDE.md` into your project's working directory so they can be committed alongside your code. Re-running it is safe.
 
-> **Why a separate init step?** Plugins install into a read-only cache, so the plugin itself can't be your project's state. `/squad:init` writes the per-project files into your actual repo so they can be committed.
+> **Why a separate init step?** Plugins install into a read-only cache, so the plugin itself can't be your project's state. `/squad:init` writes the per-project files into your actual repo.
 
 ## First five minutes
 
