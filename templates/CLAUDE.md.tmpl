@@ -1,0 +1,48 @@
+<!-- squad-roster -->
+## Project Squad
+
+This repo uses a Squad-style team of specialist subagents (installed via the `squad` Claude Code plugin). Each agent has its own context, charter, and history. Decisions and learnings are written to `.squad/` and committed to git so the team persists across sessions and across machines.
+
+### Team Roster
+
+The current team is the live list shown by `/agents`.
+
+**Core team (shipped by the plugin):**
+- `lead` — architect and coordinator. Plans work, breaks it down, decides who does what.
+- `scribe` — silent decision logger. Appends to `.squad/decisions/` after meaningful choices.
+- `reviewer` — read-only code reviewer. Runs after edits to catch issues.
+
+**Specialists (added per-project, live in `.claude/agents/`):**
+Use `/squad:new-agent` to spin up a new role. Use `/squad:recommend-team` for suggestions.
+
+### How agents coordinate
+
+1. **You talk to the lead by default.** It plans, delegates, or does the work itself.
+2. **Specialists own their domain.** They read their own `.squad/history/<name>.md` before starting and write learnings back when finishing.
+3. **Decisions are durable.** The scribe logs non-trivial calls to `.squad/decisions/YYYY-MM-DD.md`.
+4. **Reviewer runs after edits.** It only reports — it can't write.
+
+### Files the team maintains
+
+```
+.squad/
+├── decisions/        # dated decision log, one file per day
+├── history/          # per-agent learnings (lead.md, reviewer.md, plus specialists)
+├── now.md            # current focus (2–3 lines)
+└── conventions.md    # project-specific rules every agent reads
+```
+
+Commit `.squad/` and `.claude/agents/` so the team travels with the repo.
+
+### Autonomy
+
+**Full autonomy.** Agents may edit, commit, and run code without per-step approval. The scribe still logs significant decisions. To throttle for a session, start Claude Code with `--permission-mode plan`.
+
+### Conventions
+
+See `.squad/conventions.md`. Update it as conventions solidify.
+
+### Current focus
+
+See `.squad/now.md`.
+<!-- /squad-roster -->

@@ -1,0 +1,16 @@
+{
+  "name": "claude-squad",
+  "owner": {
+    "name": "claude-squad contributors"
+  },
+  "description": "A drop-in squad of specialist subagents for Claude Code.",
+  "plugins": [
+    {
+      "name": "squad",
+      "source": "./",
+      "description": "A persistent team of specialist subagents — lead, scribe, reviewer, plus an agent factory.",
+      "category": "productivity",
+      "keywords": ["agents", "subagents", "team", "coordination", "squad"]
+    }
+  ]
+}

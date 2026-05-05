@@ -1,0 +1,12 @@
+{
+  "name": "squad",
+  "version": "0.1.0",
+  "description": "A persistent team of specialist subagents for Claude Code — lead, scribe, reviewer, plus an agent factory for spinning up specialists on demand.",
+  "author": {
+    "name": "claude-squad contributors"
+  },
+  "homepage": "https://github.com/bradygaster/claude-squad",
+  "repository": "https://github.com/bradygaster/claude-squad",
+  "license": "MIT",
+  "keywords": ["agents", "subagents", "team", "coordination", "squad"]
+}
